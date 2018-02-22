@@ -1,0 +1,40 @@
+doctype html
+html(lang="ru")
+  head
+    title= title
+    meta(charset='utf-8')
+
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/jquery.treegrid.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='/jquery-treegrid/js/jquery.treegrid.js')
+    script(src='/jquery-treegrid/js/jquery.treegrid.bootstrap3.js')
+    script
+      != "$(document).ready(function(){ $('.tree').treegrid({initialState: 'collapsed'}); });"
+
+  body
+    div(class='container-fluid')
+      div(class='row')
+        div(class='col-sm-2')
+          block sidebar
+            ul(class='sidebar-nav')
+              li #{user.name}
+                hr
+              li 
+                a(href='/admin/stewards') Пользователи
+                hr
+              li 
+                a(href='/admin/departments') Подразделения
+                hr
+              li
+                a(href='/users/logout') Выйти
+                
+        div(class='col-sm-9')
+          block content
+
+        div(class='col-sm-1')
+          span 
